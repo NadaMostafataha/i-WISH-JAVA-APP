@@ -19,7 +19,7 @@ public class IWISH extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = new RegisterBase(stage);
         
         Scene scene = new Scene(root);
         
