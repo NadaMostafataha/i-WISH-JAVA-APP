@@ -1,5 +1,13 @@
 package iwishVIEW;
 
+import DATABASE.DAO;
+import MODEL.User;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -66,7 +74,7 @@ public class RegisterBase extends BorderPane {
         btnRegister.setPrefWidth(169.0);
         btnRegister.setText("Register");
         btnRegister.setTextFill(javafx.scene.paint.Color.valueOf("#47159d"));
-
+        
         txtEmail.setLayoutX(119.0);
         txtEmail.setLayoutY(232.0);
         txtEmail.setPrefHeight(31.0);
