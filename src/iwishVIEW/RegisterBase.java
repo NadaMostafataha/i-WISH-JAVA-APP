@@ -1,5 +1,15 @@
 package iwishVIEW;
 
+import CONTROLLER.Client;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.Socket;
+import java.net.SocketException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -22,9 +32,14 @@ public class RegisterBase extends BorderPane {
     protected final Text text1;
     protected final TextField txtUsername;
     protected final ImageView imageView0;
+    Socket s ;
+    //DataInputStream dis;
+    PrintStream ps ;
+    private Client client;
 
-    public RegisterBase(Stage stage) {
+    public RegisterBase(Client client) {
 
+        this.client = client;
         anchorPane = new AnchorPane();
         imageView = new ImageView();
         anchorPane0 = new AnchorPane();
@@ -36,6 +51,22 @@ public class RegisterBase extends BorderPane {
         text1 = new Text();
         txtUsername = new TextField();
         imageView0 = new ImageView();
+        try {
+            s = new Socket("127.0.0.1",5005);
+            //dis = new DataInputStream(s.getInputStream());
+            ps = new PrintStream(s.getOutputStream());
+        } 
+        catch(SocketException se){
+            try {
+                s.close();
+                //dis.close();
+            } catch (IOException ex) {
+                Logger.getLogger(RegisterBase.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        catch (IOException ex) {
+            Logger.getLogger(RegisterBase.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         setMaxHeight(USE_PREF_SIZE);
         setMaxWidth(USE_PREF_SIZE);
@@ -66,6 +97,21 @@ public class RegisterBase extends BorderPane {
         btnRegister.setPrefWidth(169.0);
         btnRegister.setText("Register");
         btnRegister.setTextFill(javafx.scene.paint.Color.valueOf("#47159d"));
+        btnRegister.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+               
+                    ps.println("reg");
+                    ps.println(txtUsername.getText());
+                    txtUsername.clear();
+                    ps.println(txtPassword.getText());
+                    txtPassword.clear();
+                     ps.println(txtEmail.getText());
+                    txtEmail.clear();
+                    
+                
+            }
+        });
 
         txtEmail.setLayoutX(119.0);
         txtEmail.setLayoutY(232.0);
@@ -123,4 +169,22 @@ public class RegisterBase extends BorderPane {
         anchorPane0.getChildren().add(imageView0);
 
     }
+
+    public Button getBtnRegister() {
+        return btnRegister;
+    }
+
+    public TextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public TextField getTxtPassword() {
+        return txtPassword;
+    }
+
+    public TextField getTxtUsername() {
+        return txtUsername;
+    }
+    
+    
 }
