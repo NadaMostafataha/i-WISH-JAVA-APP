@@ -5,10 +5,9 @@
  */
 package iwishVIEW;
 //new project
-import DATABASE.DAO;
-import MODEL.User;
-import java.sql.SQLException;
+import CONTROLLER.Client;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,20 +21,8 @@ public class IWISH extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = new RegisterBase(stage);
         
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws SQLException {
-        launch(args);
+        Client client = new Client(stage);
         
     }
-    
 }
