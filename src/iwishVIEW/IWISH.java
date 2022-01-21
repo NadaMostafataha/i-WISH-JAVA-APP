@@ -5,12 +5,8 @@
  */
 package iwishVIEW;
 //new project
-import CONTROLLER.Client;
+import CONTROLLER.LoginController;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -22,7 +18,7 @@ public class IWISH extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Client client = new Client(stage);
+        LoginController client = new LoginController(stage);
         
     }
 }

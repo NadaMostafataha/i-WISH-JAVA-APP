@@ -47,9 +47,9 @@ public class DAO {
         int result = -1;
         PreparedStatement pst = con.prepareStatement("insert into Clients values (USER_ID_SEQ.nextval,?,?,?)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
-        pst.setString(1, "Mayar");
-        pst.setString(2, "Mayar@gmail.com");
-        pst.setString(3, "Mayar123");
+        pst.setString(1,user.getUsername());
+        pst.setString(2, user.getPassword());
+        pst.setString(3, user.getEmail());
         result = pst.executeUpdate();
         if (result == -1) {
             System.out.println("Failed");
@@ -62,20 +62,16 @@ public class DAO {
 
     }
     
-    public static String selectFromTab() throws SQLException {
+    public static boolean checkLogin(User user) throws SQLException {
         getRemoteConnection();
-        String result = null;
-        PreparedStatement pst = con.prepareStatement("select * from tab", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        PreparedStatement pst = con.prepareStatement("select * from clients where c_name = ? and c_password = ?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        pst.setString(1,user.getUsername());
+        pst.setString(2, user.getPassword());
         rs = pst.executeQuery();
-
         if (rs.next()) {
-            result = rs.getString("TNAME");
-            System.out.print(result);
-
+            return true;
         } else {
-            System.out.print("no data found ");
+            return false;
         }
-
-        return result;
     }
 }

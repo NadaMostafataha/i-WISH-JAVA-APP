@@ -2,7 +2,8 @@ package iwishVIEW;
 
 
 
-import CONTROLLER.Client;
+import CONTROLLER.LoginController;
+import CONTROLLER.RegController;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
@@ -36,11 +37,11 @@ public class RegisterBase extends BorderPane {
     Socket s ;
     //DataInputStream dis;
     PrintStream ps ;
-    private Client client;
+    
 
-    public RegisterBase(Client client) {
+    public RegisterBase(RegController regctlr) {
 
-        this.client = client;
+        
         anchorPane = new AnchorPane();
         imageView = new ImageView();
         anchorPane0 = new AnchorPane();
@@ -98,22 +99,6 @@ public class RegisterBase extends BorderPane {
         btnRegister.setPrefWidth(169.0);
         btnRegister.setText("Register");
         btnRegister.setTextFill(javafx.scene.paint.Color.valueOf("#47159d"));
-
-        btnRegister.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-               
-                    ps.println("reg");
-                    ps.println(txtUsername.getText());
-                    txtUsername.clear();
-                    ps.println(txtPassword.getText());
-                    txtPassword.clear();
-                     ps.println(txtEmail.getText());
-                    txtEmail.clear();
-                    
-                
-            }
-        });
 
         txtEmail.setLayoutX(119.0);
         txtEmail.setLayoutY(232.0);

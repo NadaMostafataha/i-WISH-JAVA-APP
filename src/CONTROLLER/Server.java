@@ -10,15 +10,20 @@ package CONTROLLER;
  *
  * @author dell
  */
+import DATABASE.DAO;
+import MODEL.User;
+import com.google.gson.Gson;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.*;
 
 public class Server {
 
@@ -66,15 +71,31 @@ class Handler extends Thread {
         while (true) {
             try {
                 String str1 = dis.readLine();
-                String str2 = dis.readLine();
-                String str3 = dis.readLine();
-                String str4 = dis.readLine();
-                System.out.println(str1);
-                System.out.println(str2);
-                System.out.println(str3);
-                System.out.println(str4);
-                //sendMessageToAll(str);
-            } 
+                JSONObject message = new JSONObject(str1);
+                if (message.getString("KEY").equals("LOGIN")){
+                JSONObject info = new JSONObject(message.getString("USER"));
+                Gson gson = new Gson();
+                User user = gson.fromJson(info.toString(),User.class);
+                if(DAO.checkLogin(user)){
+                    JSONObject confirm = new JSONObject();
+                    confirm.put("KEY","LOGIN");
+                    confirm.put("CONFIRM","true");
+                    ps.println(confirm.toString());
+                }
+                else {
+                     System.out.println("Login Failed");
+                     JSONObject confirm = new JSONObject();
+                    confirm.put("KEY","LOGIN");
+                    confirm.put("CONFIRM","false");
+                    ps.println(confirm.toString());
+                }}
+                else if (message.getString("KEY").equals("REG")){
+                        JSONObject info = new JSONObject(message.getString("USER"));
+                        Gson gson = new Gson();
+                        User user = gson.fromJson(info.toString(),User.class);
+                        DAO.insertUser(user);
+                        }
+                }
             catch(SocketException se){
                 try {
                     ss.close();
@@ -86,9 +107,13 @@ class Handler extends Thread {
                 }
             }catch (IOException ex) {
                 Logger.getLogger(Handler.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Handler.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
+    
+    
 
     /*void sendMessageToAll(String msg) {
         for (Handler ch : clientsVector) {

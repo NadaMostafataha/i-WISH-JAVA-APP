@@ -10,67 +10,45 @@ package MODEL;
  * @author dell
  */
 public class User {
-    private String userName;
-    private String userEmail;
-    private String userPassword;
+ 
+    private String USERNAME;
+    private String PASSWORD;
+    private String EMAIL;
 
-    public String getUserName() {
-        return userName;
+    public User(String USERNAME, String PASSWORD, String email) {
+        this.USERNAME = USERNAME;
+        this.EMAIL = email;
+        this.PASSWORD = PASSWORD;
     }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-    
-    private String username;
-    private String email;
-    private String password;
-
-    public User(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
+    public User(String USERNAME, String PASSWORD) {
+        this.USERNAME = USERNAME;
+        this.PASSWORD = PASSWORD;
     }
 
     public String getUsername() {
-        return username;
+        return USERNAME;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String USERNAME) {
+        this.USERNAME = USERNAME;
     }
 
     public String getEmail() {
-        return email;
+        return EMAIL;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.EMAIL = email;
     }
 
     public String getPassword() {
-        return password;
+        return PASSWORD;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String PASSWORD) {
+        this.PASSWORD = PASSWORD;
     }
+    
     
     
 }
