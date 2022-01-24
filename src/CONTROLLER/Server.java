@@ -71,20 +71,23 @@ class Handler extends Thread {
         while (true) {
             try {
                 String str1 = dis.readLine();
+                
                 JSONObject message = new JSONObject(str1);
                 if (message.getString("KEY").equals("LOGIN")){
-                JSONObject info = new JSONObject(message.getString("USER"));
+                JSONObject info = new JSONObject(message.getJSONObject("USER").toString());
                 Gson gson = new Gson();
                 User user = gson.fromJson(info.toString(),User.class);
                 if(DAO.checkLogin(user)){
-                    JSONObject confirm = new JSONObject();
+                    JSONObject confirm = null;
+                    confirm = new JSONObject();
                     confirm.put("KEY","LOGIN");
-                    confirm.put("CONFIRM","true");
+                    confirm.put("CONFIRM","TRUE");
                     ps.println(confirm.toString());
+                    
                 }
                 else {
-                     System.out.println("Login Failed");
-                     JSONObject confirm = new JSONObject();
+                    System.out.println("Login Failed");
+                    JSONObject confirm = new JSONObject();
                     confirm.put("KEY","LOGIN");
                     confirm.put("CONFIRM","false");
                     ps.println(confirm.toString());

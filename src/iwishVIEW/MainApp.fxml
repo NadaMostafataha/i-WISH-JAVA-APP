@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iwishVIEW.MainAppController">
+   <children>
+      <AnchorPane fx:id="anchor_pane_left_panel" prefHeight="400.0" prefWidth="166.0" style="-fx-background-color: #19223F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <AnchorPane prefHeight="400.0" prefWidth="44.0" style="-fx-background-color: #19223F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="logo_shop" fitHeight="28.0" fitWidth="28.0" layoutX="9.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffffff;" AnchorPane.leftAnchor="9.0">
+                     <image>
+                        <Image url="@images/shop.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="logo_wish_list" fitHeight="21.0" fitWidth="28.0" layoutX="13.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffffff;">
+                     <image>
+                        <Image url="@images/wishlist.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="logo_friends" fitHeight="21.0" fitWidth="28.0" layoutX="13.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffffff;">
+                     <image>
+                        <Image url="@images/freind.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="logo_logout" fitHeight="28.0" fitWidth="21.0" layoutX="12.0" layoutY="359.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffffff;">
+                     <image>
+                        <Image url="@images/logout.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="logo_recharge" fitHeight="21.0" fitWidth="28.0" layoutX="12.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffffff;">
+                     <image>
+                        <Image url="@images/credit.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane layoutX="8.0" layoutY="24.0" prefHeight="38.0" prefWidth="33.0">
+                     <children>
+                        <StackPane prefHeight="33.0" prefWidth="34.0">
+                           <children>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #19223F;" />
+                              <ImageView fitHeight="28.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/bell.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="text_notification" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="6.90234375">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <Button fx:id="btn_shop" layoutX="53.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #19223F;" text="Shop  Here!" textFill="WHITE">
+               <font>
+                  <Font name="Lato-Light" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_wish_list" layoutX="53.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #19223F;" text="My Wish List" textFill="WHITE">
+               <font>
+                  <Font name="Lato-Light" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_friends_list" layoutX="53.0" layoutY="247.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #19223F;" text="My Friend's List" textFill="WHITE">
+               <font>
+                  <Font name="Lato-Light" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_logout" layoutX="54.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #19223F;" text="Logout " textFill="WHITE">
+               <font>
+                  <Font name="Lato-Light" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_recharge" layoutX="51.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #19223F;" text="Recharge" textFill="WHITE">
+               <font>
+                  <Font name="Lato-Light" size="14.0" />
+               </font>
+            </Button>
+            <Text fx:id="text_UserName" fill="WHITE" layoutX="66.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Raneem Wael" wrappingWidth="97.763671875">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="userProfile" fitHeight="62.0" fitWidth="66.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/user.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="91.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   55$" wrappingWidth="44.00000578165054">
+               <font>
+                  <Font name="Lato Regular" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="AnchorPane_shop" prefHeight="410.0" prefWidth="465.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="Txt_Feild_Search" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="318.0" promptText="Search Friends" style="-fx-background-radius: 10;" />
+            <Button fx:id="btn_search" layoutX="342.0" layoutY="11.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="73.0" style="-fx-background-color: #19223F; -fx-background-radius: 15 15 15 15;" text="Search" textFill="#ebebeb" />
+            <GridPane fx:id="shop_grid_pane" layoutX="34.0" layoutY="88.0" prefHeight="202.0" prefWidth="368.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="208.0" prefWidth="185.0">
+                     <children>
+                        <ImageView fx:id="product_img" fitHeight="126.0" fitWidth="185.0" layoutX="29.0" layoutY="14.0" preserveRatio="true">
+                           <image>
+                              <Image url="@images/R.jpg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="7.0" layoutY="137.0" prefHeight="54.0" prefWidth="167.0" style="-fx-background-radius: 20 20 20 20; -fx-border-radius: 20 20 20 20; -fx-background-color: #F5F5F5;">
+                           <effect>
+                              <DropShadow height="6.0" radius="3.9825" width="11.93" />
+                           </effect>
+                           <children>
+                              <Text fx:id="product_name" fill="#19223f" layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name " wrappingWidth="159.232421875">
+                                 <font>
+                                    <Font name="Lato Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="product_price" fill="#19223f" layoutX="21.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="price" />
+                              <Button fx:id="get_product_btn" layoutX="98.0" layoutY="16.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #19223F; -fx-background-radius: 15 15 15 15;" text="Get " textFill="#eeeeee">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </opaqueInsets>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="notification_pane" layoutX="177.0" prefHeight="410.0" prefWidth="459.0" style="-fx-background-color: white;">
+         <children>
+            <GridPane fx:id="friends_grid_pane1" layoutX="16.0" layoutY="40.0" prefHeight="91.0" prefWidth="390.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="94.0" prefWidth="390.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 15 15 15 15;">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="82.0" layoutX="8.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/nerd.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="txt_friends_username1" layoutX="106.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name " wrappingWidth="73.00000643730164">
+                           <font>
+                              <Font name="Lato Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btn_cancel" layoutX="285.0" layoutY="58.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="91.0" style="-fx-background-color: #E8E8E8; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2;" text="Cancel" textFill="#19223f">
+                           <effect>
+                              <DropShadow height="6.17" radius="2.585" width="6.17" />
+                           </effect>
+                        </Button>
+                        <Button fx:id="btn_accept_request" layoutX="285.0" layoutY="14.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="91.0" style="-fx-background-color: #00D100; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2;" text="Accept" textFill="WHITE">
+                           <effect>
+                              <DropShadow height="6.17" radius="2.585" width="6.17" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children></AnchorPane>
+      <AnchorPane fx:id="AnchorPane_WishList" prefHeight="410.0" prefWidth="465.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane fx:id="wish_list_grid_pane" layoutX="14.0" layoutY="51.0" prefHeight="126.0" prefWidth="399.0" style="-fx-background-color: #F8F8F8; -fx-background-radius: 10;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="126.0" prefWidth="394.0">
+                     <children>
+                        <ImageView fx:id="image_view" fitHeight="100.0" fitWidth="106.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/R.jpg" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="Text_Product_Name" fill="#19223f" layoutX="129.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name ">
+                           <font>
+                              <Font name="Lato Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="text_price" fill="#19223f" layoutX="154.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="55$">
+                           <font>
+                              <Font name="Lato Bold Italic" size="16.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btn_remove" layoutX="277.0" layoutY="67.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="109.0" style="-fx-background-color: #19223F; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2;" text="Remove item" textFill="WHITE">
+                           <effect>
+                              <DropShadow height="6.17" radius="2.585" width="6.17" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="friends_search_pane" layoutX="180.0" prefHeight="410.0" prefWidth="459.0" style="-fx-background-color: white;">
+         <children>
+            <GridPane fx:id="friends_grid_pane11" layoutX="16.0" layoutY="40.0" prefHeight="91.0" prefWidth="390.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="94.0" prefWidth="390.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 15 15 15 15;">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="82.0" layoutX="8.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/nerd.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="txt_friends_username11" layoutX="106.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name " wrappingWidth="73.00000643730164">
+                           <font>
+                              <Font name="Lato Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btn_add_friend" layoutX="278.0" layoutY="32.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: #19223F; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2;" text="Add Friend" textFill="WHITE">
+                           <effect>
+                              <DropShadow height="6.17" radius="2.585" width="6.17" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="AnchorPane_Friends" layoutY="1.0" prefHeight="410.0" prefWidth="473.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <GridPane fx:id="friends_grid_pane" layoutX="14.0" layoutY="44.0" prefHeight="91.0" prefWidth="390.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane prefHeight="94.0" prefWidth="390.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 15 15 15 15;">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="82.0" layoutX="8.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/nerd.png" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="txt_friends_username" layoutX="106.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name " wrappingWidth="73.00000643730164">
+                           <font>
+                              <Font name="Lato Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="btn_view_wishlist" layoutX="285.0" layoutY="58.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="91.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2; -fx-border-color: #19223F;" text="Remove " textFill="#19223f">
+                           <effect>
+                              <DropShadow height="6.17" radius="2.585" width="6.17" />
+                           </effect>
+                        </Button>
+                        <Button fx:id="btn_view_wishlist1" layoutX="260.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #19223F; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 2;" text="View Wishlist" textFill="WHITE">
+                           <effect>
+                              <DropShadow height="6.17" radius="2.585" width="6.17" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="AnchorPane_Recharge" layoutX="179.0" prefHeight="410.0" prefWidth="459.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="lbl_wallet" cacheShape="false" layoutX="184.0" layoutY="14.0" prefHeight="38.0" prefWidth="109.0" text="Wallet" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+            <TextField fx:id="txt_creditno" layoutX="114.0" layoutY="239.0" prefHeight="38.0" prefWidth="212.0" promptText="Credit Card Number" style="-fx-background-radius: 10 10 10 10; -fx-background-color: #19223F;" />
+            <AnchorPane layoutX="55.0" layoutY="65.0" prefHeight="152.0" prefWidth="381.0" style="-fx-background-radius: 10 10 10 10; -fx-background-color: #19223F;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text fx:id="lbl_balance" fill="#f8f8f8" layoutX="33.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Balance" wrappingWidth="108.9999963901937">
+                     <font>
+                        <Font name="Cambria" size="27.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txt_balance" fill="#eeeeee" layoutX="217.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="555$" wrappingWidth="115.9999942779541">
+                     <font>
+                        <Font size="45.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btn_recharge" layoutX="352.0" layoutY="345.0" mnemonicParsing="false" prefWidth="84.0" style="-fx-background-color: white; -fx-background-radius: 10 10 10 10; -fx-border-color: #19223F; -fx-border-radius: 10 10 10 10;" text="Recharge">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <TextField fx:id="txt_rechage" layoutX="114.0" layoutY="307.0" prefHeight="38.0" prefWidth="212.0" promptText="Recharge Amount" style="-fx-background-radius: 10 10 10 10; -fx-background-color: #19223F;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="176.0" prefHeight="410.0" prefWidth="459.0" style="-fx-background-color: white;">
+         <children>
+            <FlowPane layoutX="14.0" layoutY="14.0" prefHeight="75.0" prefWidth="440.0" style="-fx-background-color: white;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Text fx:id="txt_notfication" strokeType="OUTSIDE" strokeWidth="0.0" text="here we will write notifications" wrappingWidth="379.10498046875">
+                     <FlowPane.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </FlowPane.margin>
+                  </Text>
+               </children></FlowPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

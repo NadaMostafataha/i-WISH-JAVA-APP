@@ -25,13 +25,16 @@ import org.json.JSONObject;
  */
 public class LoginController{
     
+    Stage stage;
     loginBase root;
     RegisterBase regRoot;
     LoginController clt;
     ClientController clientCtlr = ClientController.getInstance();
     
+    
     public LoginController (Stage stage){
 
+        this.stage = stage;
     //creating the view
         root = new loginBase(this);
         Scene scene = new Scene(root);
@@ -39,11 +42,11 @@ public class LoginController{
         Platform.setImplicitExit(true);
         stage.show();
         
-        login(stage);
+        login();
         
      
     }
-    public void login (Stage stage){
+    public void login (){
         
         Button btnLogin = root.getBtnLogIn();
         Button btnSignup = root.getBtnSignUp();
@@ -58,12 +61,12 @@ public class LoginController{
                message.put("KEY","LOGIN");
                user.put("USERNAME",txtUsername.getText());
                user.put("PASSWORD",txtPassword.getText());
-               message.put("USER",user.toString());
+               message.put("USER",user);
                boolean confirmation = clientCtlr.sendLogin(message);
                
                if(confirmation){
                 
-                        RegController regctlr = new RegController(stage);
+                      HomeController homectlr = new HomeController(stage);
                       
                }
                
