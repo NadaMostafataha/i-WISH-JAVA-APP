@@ -27,6 +27,8 @@ public class ClientController  {
     PrintStream ps ;
     private boolean loginResponseFlag ;
     private boolean blockingFlag = true;
+    //private JSONObject data;
+    String datarecived;
     
     private ClientController(){
     
@@ -37,8 +39,10 @@ public class ClientController  {
                 while(true){
                     try {
                         String msg = dis.readLine();
+                        //System.out.println(msg);
                         JSONObject confirm = null;
                         confirm = new JSONObject(msg);
+                        //data = null;
                         switch(confirm.getString("KEY")){
                             case "LOGIN":
                                 if(confirm.getString("CONFIRM").equals("TRUE")){
@@ -46,7 +50,16 @@ public class ClientController  {
                                 blockingFlag = false;
                                 }
                                 break;
-                                
+                            case "INTIALBALANCE":
+                                datarecived= confirm.getString("BALANCE");
+                                System.out.println(datarecived);
+                                blockingFlag = false;
+                            break; 
+                            case "RECHARGE":
+                                datarecived= confirm.getString("NEWBALANCE");
+                                System.out.println(datarecived);
+                                blockingFlag = false;
+                            break;   
                         }
                     } catch (IOException ex) {
                         Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,7 +69,7 @@ public class ClientController  {
         }.start();
     }
     
-    
+  
     public static ClientController getInstance(){
     
         if (client == null)
@@ -71,13 +84,38 @@ public class ClientController  {
         while(blockingFlag){
             System.out.println("Connecting...");
         }
-        
+        blockingFlag=true;
         return loginResponseFlag;
     }
     
     public void  sendRegister(JSONObject json){
     ps.println(json.toString());
         System.out.println("Connecting...");
+    }
+    
+     public void sendWishlistItem(JSONObject json){
+    ps.println(json.toString());
+    
+    }
+    
+    public String sendBalancerequest(JSONObject json){
+        ps.println(json.toString());
+        while(blockingFlag){
+            System.out.println("waitting balance...");
+        }
+        System.out.println("rrrr"+datarecived); 
+        blockingFlag=true;
+        return datarecived;
+    } 
+    
+    public String sendrecharge(JSONObject json){
+        ps.println(json.toString());
+        while(blockingFlag){
+            System.out.println("waitting charge...");
+        }
+        System.out.println("recivied charge"+datarecived); 
+        // blockingFlag=true;
+        return datarecived;
     }
                
     private void connect(){ 

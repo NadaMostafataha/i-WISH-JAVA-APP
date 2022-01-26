@@ -5,6 +5,7 @@
  */
 package DATABASE;
 
+import MODEL.Product;
 import MODEL.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -74,4 +75,65 @@ public class DAO {
             return false;
         }
     }
+    
+    public static int insertwishlist(Product product) throws SQLException {
+        DAO.getRemoteConnection();
+        int result = -1;
+        PreparedStatement pst = con.prepareStatement("insert into PRODUCTS(PRO_ID,PRO_NAME,PRO_PRICE) values (PRODUCTS_SEQ.nextval,?,?)", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+        pst.setString(1, product.getNAME());
+        pst.setDouble(2, product.getPRICE());
+        //pst.set(3,product.getPRODUCTIMG());
+        result = pst.executeUpdate();
+        if (result == -1) {
+            System.out.println("Failed");
+        } else {
+            System.out.println("Successful");
+        }
+        pst = con.prepareStatement("select * from PRODUCTS", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        rs = pst.executeQuery();
+        return result;
+
+    }
+    
+    public static String getintialbalance(String user) throws SQLException {
+        String u=null;
+        getRemoteConnection();
+        PreparedStatement pst = con.prepareStatement("select BALANCE from clients where c_name = ? ", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        pst.setString(1,user);
+        rs = pst.executeQuery();
+        if (rs.next()) {
+             u=rs.getString("BALANCE");  
+        } 
+        return u;
+    }
+    public static String rechargebalance(String user, String amount) throws SQLException {
+        String r=null;
+        int result = -1;
+        double x;
+        double y;
+        double newbalance;
+            getRemoteConnection();
+            r=getintialbalance(user);
+            x=Double.parseDouble(amount);
+            y=Double.parseDouble(r);
+            newbalance=x+y;
+            System.out.println("newbalance db"+newbalance);
+            PreparedStatement pst = con.prepareStatement("update  clients set balance = ? where C_NAME=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            pst.setDouble(1,newbalance);
+            pst.setString(2,user);
+            result = pst.executeUpdate();
+             System.out.println("newbalance db update result"+result);
+            if (result == -1) {
+            System.out.println("Failed");
+            newbalance=x;
+            r=Double.toString(newbalance);
+        } else {
+            System.out.println("Successful");
+            r=Double.toString(newbalance);
+        }
+            System.out.println("newbalance db update result send"+r);
+        return r;
+    }
+    
 }

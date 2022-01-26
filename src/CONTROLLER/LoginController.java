@@ -30,7 +30,7 @@ public class LoginController{
     RegisterBase regRoot;
     LoginController clt;
     ClientController clientCtlr = ClientController.getInstance();
-    
+    String username;
     
     public LoginController (Stage stage){
 
@@ -65,8 +65,9 @@ public class LoginController{
                boolean confirmation = clientCtlr.sendLogin(message);
                
                if(confirmation){
-                
-                      HomeController homectlr = new HomeController(stage);
+                         username= txtUsername.getText(); 
+                      HomeController homectlr = new HomeController(stage,username);
+                   
                       
                }
                

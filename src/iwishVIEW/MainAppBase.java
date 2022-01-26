@@ -71,7 +71,7 @@ public class MainAppBase extends AnchorPane {
     protected final GridPane wish_list_grid_pane;
     protected final ColumnConstraints columnConstraints2;
     protected final RowConstraints rowConstraints1;
-    protected final AnchorPane anchorPane4;
+    protected final AnchorPane wishpane;
     protected final ImageView image_view;
     protected final Text Text_Product_Name;
     protected final Text text_price;
@@ -170,7 +170,7 @@ public class MainAppBase extends AnchorPane {
         wish_list_grid_pane = new GridPane();
         columnConstraints2 = new ColumnConstraints();
         rowConstraints1 = new RowConstraints();
-        anchorPane4 = new AnchorPane();
+        wishpane = new AnchorPane();
         image_view = new ImageView();
         Text_Product_Name = new Text();
         text_price = new Text();
@@ -382,7 +382,7 @@ public class MainAppBase extends AnchorPane {
         text.setLayoutY(117.0);
         text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text.setStrokeWidth(0.0);
-        text.setText("   55$");
+        text.setText("Balance");
         text.setWrappingWidth(44.00000578165054);
         text.setFont(new Font("Lato Regular", 16.0));
 
@@ -461,7 +461,7 @@ public class MainAppBase extends AnchorPane {
         product_price.setLayoutY(33.0);
         product_price.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         product_price.setStrokeWidth(0.0);
-        product_price.setText("price");
+        product_price.setText("55");
 
         get_product_btn.setLayoutX(98.0);
         get_product_btn.setLayoutY(16.0);
@@ -561,8 +561,8 @@ public class MainAppBase extends AnchorPane {
         rowConstraints1.setPrefHeight(30.0);
         rowConstraints1.setVgrow(javafx.scene.layout.Priority.SOMETIMES);
 
-        anchorPane4.setPrefHeight(126.0);
-        anchorPane4.setPrefWidth(394.0);
+        wishpane.setPrefHeight(126.0);
+        wishpane.setPrefWidth(394.0);
 
         image_view.setFitHeight(100.0);
         image_view.setFitWidth(106.0);
@@ -744,7 +744,7 @@ public class MainAppBase extends AnchorPane {
         txt_creditno.setPrefHeight(38.0);
         txt_creditno.setPrefWidth(212.0);
         txt_creditno.setPromptText("Credit Card Number");
-        txt_creditno.setStyle("-fx-background-radius: 10 10 10 10; -fx-background-color: #19223F;");
+        txt_creditno.setStyle("-fx-background-radius: 10 10 10 10; -fx-text-fill: white;-fx-text-fill: white; -fx-background-color: #19223F;");
 
         anchorPane7.setLayoutX(55.0);
         anchorPane7.setLayoutY(65.0);
@@ -781,12 +781,12 @@ public class MainAppBase extends AnchorPane {
 
         btn_recharge0.setEffect(dropShadow10);
 
-        txt_rechage.setLayoutX(114.0);
+        txt_rechage.setLayoutX(114.0); 
         txt_rechage.setLayoutY(307.0);
         txt_rechage.setPrefHeight(38.0);
         txt_rechage.setPrefWidth(212.0);
         txt_rechage.setPromptText("Recharge Amount");
-        txt_rechage.setStyle("-fx-background-radius: 10 10 10 10; -fx-background-color: #19223F;");
+        txt_rechage.setStyle("-fx-background-radius: 10 10 10 10; -fx-text-fill: white; -fx-background-color: #19223F;");
 
         anchorPane8.setLayoutX(176.0);
         anchorPane8.setPrefHeight(410.0);
@@ -851,11 +851,11 @@ public class MainAppBase extends AnchorPane {
         getChildren().add(notification_pane);
         wish_list_grid_pane.getColumnConstraints().add(columnConstraints2);
         wish_list_grid_pane.getRowConstraints().add(rowConstraints1);
-        anchorPane4.getChildren().add(image_view);
-        anchorPane4.getChildren().add(Text_Product_Name);
-        anchorPane4.getChildren().add(text_price);
-        anchorPane4.getChildren().add(btn_remove);
-        wish_list_grid_pane.getChildren().add(anchorPane4);
+        wishpane.getChildren().add(image_view);
+        wishpane.getChildren().add(Text_Product_Name);
+        wishpane.getChildren().add(text_price);
+        wishpane.getChildren().add(btn_remove);
+        wish_list_grid_pane.getChildren().add(wishpane);
         AnchorPane_WishList.getChildren().add(wish_list_grid_pane);
         getChildren().add(AnchorPane_WishList);
         friends_grid_pane11.getColumnConstraints().add(columnConstraints3);
@@ -903,7 +903,7 @@ public class MainAppBase extends AnchorPane {
 
 
 
-public Button getGet_product_btn() {
+    public Button getGet_product_btn() {
         return get_product_btn;
     }
 
@@ -919,4 +919,76 @@ public Button getGet_product_btn() {
         return product_price;
     }
 
+    public Text getText_UserName() {
+        return text_UserName;
+    }
+
+    public Button getBtn_recharge() {
+        return btn_recharge;
+    }
+
+    public Text getbalanceText() {
+        return text;
+    }
+
+    public Text getTxt_balance() {
+        return txt_balance;
+    }
+
+    public TextField getTxt_rechage() {
+        return txt_rechage;
+    }
+    
+    public void setbalanceText(String balance){
+    text.setText(balance);
+    }
+    
+    public void setwalletbalance(String balance){
+    txt_balance.setText(balance);
+    }
+    
+     public void setUSERNAME(String NAME){
+    text_UserName.setText(NAME);
+    }
+
+    public Button getBtn_remove() {
+        return btn_remove;
+    }
+
+    public Button getBtn_view_wishlist() {
+        return btn_view_wishlist;
+    }
+
+    public Button getBtn_view_wishlist1() {
+        return btn_view_wishlist1;
+    }
+
+    public TextField getTxt_creditno() {
+        return txt_creditno;
+    }
+
+ 
+
+    public AnchorPane getwishpane() {
+        return wishpane;
+    }
+
+    public Text getText_Product_Name() {
+        return Text_Product_Name;
+    }
+
+    public Text getText_price() {
+        return text_price;
+    }
+    
+
+    
+   
+
+   
+
+ 
+    
+   
+    
 }

@@ -14,6 +14,7 @@ public class User {
     private String USERNAME;
     private String PASSWORD;
     private String EMAIL;
+    private double BALANCE;
 
     public User(String USERNAME, String PASSWORD, String email) {
         this.USERNAME = USERNAME;
@@ -24,6 +25,20 @@ public class User {
         this.USERNAME = USERNAME;
         this.PASSWORD = PASSWORD;
     }
+
+    public User(String USERNAME, double BALANCE) {
+        this.USERNAME = USERNAME;
+        this.BALANCE = BALANCE;
+    }
+    
+    public User(double BALANCE) {
+        this.BALANCE = BALANCE;
+    }
+
+    public double getBALANCE() {
+        return BALANCE;
+    }
+    
 
     public String getUsername() {
         return USERNAME;
