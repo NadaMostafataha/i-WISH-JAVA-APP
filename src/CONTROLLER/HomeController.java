@@ -97,7 +97,7 @@ public class HomeController {
    
     }   
   public void RechargeCredit(String strr2){
-    Button rechargebtn = root.getBtn_recharge();
+    Button rechargebtn = root.getBtn_charge();
     TextField rechargeamount = root.getTxt_rechage(); 
     TextField creditno = root.getTxt_creditno();
     

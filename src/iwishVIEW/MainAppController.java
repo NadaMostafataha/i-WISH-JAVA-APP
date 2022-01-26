@@ -5,11 +5,9 @@
  */
 package iwishVIEW;
 
-import iwishVIEW.MainAppBase;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,16 +17,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import org.json.JSONObject;
 
 /**
  * FXML Controller class
  *
- * @author Asus
+ * @author dell
  */
 public class MainAppController implements Initializable {
 
-   
     @FXML
     private AnchorPane anchor_pane_left_panel;
     @FXML
@@ -58,22 +54,6 @@ public class MainAppController implements Initializable {
     @FXML
     private ImageView userProfile;
     @FXML
-    private AnchorPane AnchorPane_shop;
-    @FXML
-    private TextField Txt_Feild_Search;
-    @FXML
-    private Button btn_search;
-    @FXML
-    private GridPane shop_grid_pane;
-    @FXML
-    private ImageView product_img;
-    @FXML
-    private Text product_name;
-    @FXML
-    private Text product_price;
-    @FXML
-    private Button get_product_btn;
-    @FXML
     private AnchorPane notification_pane;
     @FXML
     private GridPane friends_grid_pane1;
@@ -83,6 +63,42 @@ public class MainAppController implements Initializable {
     private Button btn_cancel;
     @FXML
     private Button btn_accept_request;
+    @FXML
+    private AnchorPane friends_search_pane;
+    @FXML
+    private GridPane friends_grid_pane11;
+    @FXML
+    private Text txt_friends_username11;
+    @FXML
+    private Button btn_add_friend;
+    @FXML
+    private AnchorPane AnchorPane_Recharge;
+    @FXML
+    private Label lbl_wallet;
+    @FXML
+    private TextField txt_creditno;
+    @FXML
+    private Text lbl_balance;
+    @FXML
+    private Text txt_balance;
+    @FXML
+    private Button btn_charge;
+    @FXML
+    private TextField txt_rechage;
+    @FXML
+    private AnchorPane AnchorPane_Friends;
+    @FXML
+    private GridPane friends_grid_pane;
+    @FXML
+    private AnchorPane friends_pane;
+    @FXML
+    private Text txt_friends_username;
+    @FXML
+    private Button btn_view_wishlist_rm;
+    @FXML
+    private Button btn_view_wishlist;
+    @FXML
+    private Text txt_notfication;
     @FXML
     private AnchorPane AnchorPane_WishList;
     @FXML
@@ -96,44 +112,60 @@ public class MainAppController implements Initializable {
     @FXML
     private Button btn_remove;
     @FXML
-    private AnchorPane friends_search_pane;
+    private AnchorPane friends_wishlist_pane;
     @FXML
-    private GridPane friends_grid_pane11;
+    private GridPane wish_list_grid_pane1;
     @FXML
-    private Text txt_friends_username11;
+    private AnchorPane contribute_pane;
     @FXML
-    private Button btn_add_friend;
+    private ImageView image_view1;
     @FXML
-    private AnchorPane AnchorPane_Friends;
+    private Text Text_Product_Name1;
     @FXML
-    private GridPane friends_grid_pane;
+    private Text text_price1;
     @FXML
-    private Text txt_friends_username;
+    private Button btn_contribute;
     @FXML
-    private Button btn_view_wishlist;
+    private TextField txt_contribute;
     @FXML
-    private Button btn_view_wishlist1;
+    private AnchorPane AnchorPane_shop;
     @FXML
-    private AnchorPane AnchorPane_Recharge;
+    private TextField Txt_Feild_Search;
     @FXML
-    private Label lbl_wallet;
+    private Button btn_search;
     @FXML
-    private TextField txt_creditno;
+    private GridPane shop_grid_pane;
     @FXML
-    private Text lbl_balance;
+    private AnchorPane product_pane;
     @FXML
-    private Text txt_balance;
+    private ImageView product_img;
     @FXML
-    private TextField txt_rechage;
+    private Text product_name;
     @FXML
-    private Text txt_notfication;
-     MainAppBase MainRoot;
-
+    private Text product_price;
+    @FXML
+    private Button get_product_btn;
+    @FXML
+    private AnchorPane notification_pane_2;
+    @FXML
+    private Text Text_Product_Name2;
+    @FXML
+    private Text text_price2;
+    @FXML
+    private Button btn_remove1;
+    @FXML
+    private AnchorPane AnchorPane_WishList_con;
+    @FXML
+    private AnchorPane wishpane;
+    @FXML
+    private ImageView product_img1;
 
     /**
      * Initializes the controller class.
      */
-     @FXML
+     
+
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         if (event.getSource() == btn_shop)
             AnchorPane_shop.toFront();
