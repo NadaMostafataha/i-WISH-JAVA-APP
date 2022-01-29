@@ -126,6 +126,7 @@ class Handler extends Thread {
                 
                 }
                 else if (message.getString("KEY").equals("RECHARGE")){
+                    System.out.println("recharge condition");
                     String rechargeinfo = message.getString("USERNAME");
                     String rechargeamount= message.getString("AMOUNT");
                        
