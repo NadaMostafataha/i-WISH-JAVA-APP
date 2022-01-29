@@ -108,30 +108,31 @@ public class DAO {
         return u;
     }
     public static String rechargebalance(String user, String amount) throws SQLException {
+        getRemoteConnection();
         String r=null;
         int result = -1;
         double x;
         double y;
         double newbalance;
-            getRemoteConnection();
+          System.out.println("amount"+amount);
             r=getintialbalance(user);
             x=Double.parseDouble(amount);
             y=Double.parseDouble(r);
             newbalance=x+y;
-            System.out.println("newbalance db"+newbalance);
             PreparedStatement pst = con.prepareStatement("update  clients set balance = ? where C_NAME=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             pst.setDouble(1,newbalance);
             pst.setString(2,user);
             result = pst.executeUpdate();
-             System.out.println("newbalance db update result"+result);
+            System.out.println("newbalance db update result"+result);
             if (result == -1) {
             System.out.println("Failed");
             newbalance=x;
             r=Double.toString(newbalance);
         } else {
             System.out.println("Successful");
-            r=Double.toString(newbalance);
+            //r=Double.toString(newbalance);
         }
+            r=Double.toString(newbalance);
             System.out.println("newbalance db update result send"+r);
         return r;
     }
